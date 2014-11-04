@@ -27,7 +27,7 @@
     self.nameLabel.text = self.results.name;
         self.rsvpLabel.text = [NSString stringWithFormat:@"%@",self.results.rsvpCount];
         self.groupNameLabel.text = self.results.hostingGroup;
-        self.descriptionLabel.text = self.results.eventDescription;
+        self.descriptionLabel.text = self.results.eventDescription; //use as webview html formatting
     [self anotherJSONCall];
     
     // Do any additional setup after loading the view.
@@ -63,12 +63,14 @@
     WebViewController *webVC = segue.destinationViewController;
     NSURL *url = [NSURL URLWithString:self.results.eventURL];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    webVC.request = request;
+    webVC.request = request; //TODO: pass NSString instead of NSURLRequest.
 }
 
+
+
+//TODO: Make this method gooder.
 -(void)anotherJSONCall
 {
-
     NSString *eventID = self.resultsID;
     NSString *searchURL = [NSString stringWithFormat:@"https://api.meetup.com/2/event_comments.json?event_id=%@&key=a25646c7539111e1d1c7a25b3e2b23", eventID];
     

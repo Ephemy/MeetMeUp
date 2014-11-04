@@ -23,34 +23,10 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.defaultView = YES;
-    NSURL *url = [NSURL URLWithString:kURL];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
-     {
-         if(connectionError)
-         {
-             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error error!" message:connectionError.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
-             UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
-             [alert addAction:okButton];
-             [self presentViewController:alert animated:YES completion:nil];
-         }
-         else
-         {
-             self.dictionaryOfData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-             self.resultsOfData = self.dictionaryOfData[@"results"];
-             
-             [self.tableView reloadData];
-             
-         }
-         
-         
-     }];
-    
-    
-    
+- (void)viewDidLoad
+{
+    [super viewDidLoad]; //wow so clean
+    [self loadEventsWithSearchQuery: @"Mobile"];
 }
 
 
@@ -67,10 +43,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     //    NSArray *arrayOfData = self.dictionaryOfData [@"results"];
 //    if(self.defaultView){
-        NSDictionary *dataContainer = self.resultsOfData[indexPath.row];
-        NSDictionary *dataContainer2 = dataContainer[@"venue"];
+        NSDictionary *dataContainer = self.resultsOfData[indexPath.row]; //meetup dictionary
+        NSDictionary *dataContainer2 = dataContainer[@"venue"]; //venue dictionary
         
-        cell.textLabel.text = dataContainer2[@"name"];
+        cell.textLabel.text = dataContainer[@"name"];
         cell.detailTextLabel.text = dataContainer2[@"address_1"];
 //    }
 //
@@ -94,19 +70,22 @@
     
     DetailViewController *detailVC = segue.destinationViewController;
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    NSDictionary *dataContainer = self.resultsOfData[indexPath.row];
+    NSDictionary *dataContainer = self.resultsOfData[indexPath.row]; //data container names
     NSDictionary *dataContainer2 = dataContainer[@"venue"];
     NSDictionary *dataContainer3 = dataContainer[@"group"];
-    Results *passedData = [[Results alloc] init];
     
+    
+    Results *passedData = [[Results alloc] init]; //represents an Event/Meetup add a convenience initializer
     passedData.name = dataContainer2[@"name"];
     passedData.rsvpCount = dataContainer[@"yes_rsvp_count"];
     passedData.hostingGroup = dataContainer3[@"name"];
     passedData.eventDescription = dataContainer[@"description"];
     passedData.eventURL = dataContainer[@"event_url"];
     detailVC.resultsID = dataContainer[@"id"];
-//    passedData.helloWorld = [dataContainer valueForKey:@"id"];
     NSLog(@"%@", dataContainer[@"id"]);
+//    passedData.objectID = dataContainer[@"id"];
+
+//    NSLog(@"%@", dataContainer[@"id"]);
     
     detailVC.results = passedData;
     
@@ -119,20 +98,15 @@
 
 - (IBAction)onButtonPressedSearch:(UIBarButtonItem *)barButton
 {
-    [self refreshTableView];
+    [self loadEventsWithSearchQuery:self.searchBarText.text];
 }
 
-- (void)refreshTableView
+- (void)loadEventsWithSearchQuery:(NSString *)searchQuery
 
 {
-    self.defaultView = NO;
-//    self.tableView = nil;
-    //
-        NSString *topic = self.searchBarText.text;
+
+    NSString *topic = searchQuery;
         NSString *searchURL = [NSString stringWithFormat: @"https://api.meetup.com/2/open_events.json?zip=60604&text=%@&time=,1w&key=a25646c7539111e1d1c7a25b3e2b23", topic];
-    
-//    NSString *searchURL = @"http://api.meetup.com/2/groups.json/?zip=11211&topic=moms&order=members&key=a25646c7539111e1d1c7a25b3e2b23";
-    
     NSURL *url = [NSURL URLWithString:searchURL];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)

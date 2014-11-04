@@ -16,6 +16,7 @@
 @property NSString *hostingGroup;
 @property NSString *eventDescription;
 @property NSString *eventURL;
+@property NSString *objectID;
 
 
 
