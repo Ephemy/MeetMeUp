@@ -14,6 +14,10 @@
 		7BACD4E91A0828F70003F383 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BACD4E81A0828F70003F383 /* Images.xcassets */; };
 		7BACD4EC1A0828F70003F383 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BACD4EA1A0828F70003F383 /* LaunchScreen.xib */; };
 		7BACD4F81A0828F70003F383 /* MeetMeUpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BACD4F71A0828F70003F383 /* MeetMeUpTests.m */; };
+		7BACD5031A0834C50003F383 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BACD5021A0834C50003F383 /* DetailViewController.m */; };
+		7BACD5061A0834E70003F383 /* Results.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BACD5051A0834E70003F383 /* Results.m */; };
+		7BB1976B1A08419C00FFB984 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB1976A1A08419C00FFB984 /* WebViewController.m */; };
+		7BB1F4231A0881C0005DA600 /* MembersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB1F4221A0881C0005DA600 /* MembersViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,14 @@
 		7BACD4F11A0828F70003F383 /* MeetMeUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetMeUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BACD4F61A0828F70003F383 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BACD4F71A0828F70003F383 /* MeetMeUpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetMeUpTests.m; sourceTree = "<group>"; };
+		7BACD5011A0834C50003F383 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		7BACD5021A0834C50003F383 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		7BACD5041A0834E70003F383 /* Results.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Results.h; sourceTree = "<group>"; };
+		7BACD5051A0834E70003F383 /* Results.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Results.m; sourceTree = "<group>"; };
+		7BB197691A08419C00FFB984 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		7BB1976A1A08419C00FFB984 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		7BB1F4211A0881C0005DA600 /* MembersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MembersViewController.h; sourceTree = "<group>"; };
+		7BB1F4221A0881C0005DA600 /* MembersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MembersViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +97,14 @@
 				7BACD4E01A0828F70003F383 /* AppDelegate.m */,
 				7BACD4E21A0828F70003F383 /* ViewController.h */,
 				7BACD4E31A0828F70003F383 /* ViewController.m */,
+				7BACD5011A0834C50003F383 /* DetailViewController.h */,
+				7BACD5021A0834C50003F383 /* DetailViewController.m */,
+				7BB197691A08419C00FFB984 /* WebViewController.h */,
+				7BB1976A1A08419C00FFB984 /* WebViewController.m */,
+				7BB1F4211A0881C0005DA600 /* MembersViewController.h */,
+				7BB1F4221A0881C0005DA600 /* MembersViewController.m */,
+				7BACD5041A0834E70003F383 /* Results.h */,
+				7BACD5051A0834E70003F383 /* Results.m */,
 				7BACD4E51A0828F70003F383 /* Main.storyboard */,
 				7BACD4E81A0828F70003F383 /* Images.xcassets */,
 				7BACD4EA1A0828F70003F383 /* LaunchScreen.xib */,
@@ -219,9 +239,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BB1F4231A0881C0005DA600 /* MembersViewController.m in Sources */,
 				7BACD4E41A0828F70003F383 /* ViewController.m in Sources */,
+				7BB1976B1A08419C00FFB984 /* WebViewController.m in Sources */,
 				7BACD4E11A0828F70003F383 /* AppDelegate.m in Sources */,
 				7BACD4DE1A0828F70003F383 /* main.m in Sources */,
+				7BACD5031A0834C50003F383 /* DetailViewController.m in Sources */,
+				7BACD5061A0834E70003F383 /* Results.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +438,7 @@
 				7BACD4FD1A0828F70003F383 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7BACD4FE1A0828F70003F383 /* Build configuration list for PBXNativeTarget "MeetMeUpTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +447,7 @@
 				7BACD5001A0828F70003F383 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
